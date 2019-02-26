@@ -3,7 +3,7 @@
 ## Installation
 
 ```
-yarn add react-native-lightbox
+npm install igorintelweb/react-native-lightbox --seve
 ```
 
 ## Usage
