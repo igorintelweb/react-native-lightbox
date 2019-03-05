@@ -97,11 +97,17 @@ export default class LightboxOverlay extends Component {
       windowWidth: Dimensions.get('window').width,
     }
 
-    Dimensions.addEventListener('change', (dimensions) => {
-      this.setState({
-        windowHeight: dimensions.window.height,
-        windowWidth: dimensions.window.width
-      })
+    Dimensions.addEventListener('change', this.dimensionsEvent);
+  }
+
+  componentWillUnmount() {
+    Dimensions.removeEventListener('change', this.dimensionsEvent);
+  }
+
+  dimensionsEvent(dimensions) {
+    this.setState({
+      windowHeight: dimensions.window.height,
+      windowWidth: dimensions.window.width
     })
   }
 
