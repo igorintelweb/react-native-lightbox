@@ -104,12 +104,13 @@ export default class LightboxOverlay extends Component {
     Dimensions.removeEventListener('change', this.dimensionsEvent);
   }
 
-  dimensionsEvent(dimensions) {
+  dimensionsEvent = (dimensions) => {
     this.setState({
+      ...this.state,
       windowHeight: dimensions.window.height,
       windowWidth: dimensions.window.width
     })
-  }
+  };
 
   componentWillMount() {
     this._panResponder = PanResponder.create({
